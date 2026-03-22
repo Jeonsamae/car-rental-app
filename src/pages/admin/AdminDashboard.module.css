@@ -1,7 +1,21 @@
+/* ── Page root ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Filter + panel together (tighter) ── */
+.filterPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 /* ── Page header ── */
-.pageHeader { display: flex; flex-direction: column; gap: 0.25rem; }
-.greeting { font-size: 1.5rem; font-weight: 800; color: #1e293b; }
-.subGreeting { font-size: 0.9rem; color: #64748b; }
+.pageHeader { display: flex; flex-direction: column; gap: 0.2rem; }
+.greeting { font-size: 1.4rem; font-weight: 800; color: #1e293b; }
+.subGreeting { font-size: 0.85rem; color: #64748b; }
 
 /* ── Stat cards ── */
 .statsGrid {
@@ -12,12 +26,12 @@
 
 .statCard {
   background: #fff;
-  border-radius: 16px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
   border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
@@ -81,9 +95,9 @@
 .table { width: 100%; border-collapse: collapse; }
 
 .table th {
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.25rem;
   text-align: left;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #94a3b8;
   text-transform: uppercase;
@@ -93,7 +107,7 @@
 }
 
 .table td {
-  padding: 1rem 1.5rem;
+  padding: 0.85rem 1.25rem;
   font-size: 0.875rem;
   color: #334155;
   border-bottom: 1px solid #f1f5f9;
@@ -116,9 +130,11 @@
   letter-spacing: 0.3px;
 }
 
-.badgeActive   { background: rgba(34,197,94,0.1);  color: #16a34a; }
-.badgePending  { background: rgba(251,146,60,0.12); color: #ea580c; }
-.badgeReturned { background: rgba(99,102,241,0.1);  color: #4f46e5; }
+.badgeActive    { background: rgba(34,197,94,0.1);   color: #16a34a; }
+.badgePending   { background: rgba(251,146,60,0.12); color: #ea580c; }
+.badgeReturned  { background: rgba(99,102,241,0.1);  color: #4f46e5; }
+.badgeRejected  { background: rgba(239,68,68,0.1);   color: #dc2626; }
+.badgeCompleted { background: rgba(99,102,241,0.1);  color: #4f46e5; }
 
 /* ── Quick actions ── */
 .actionsList { display: flex; flex-direction: column; }
@@ -150,3 +166,186 @@
 .actionLabel { font-size: 0.875rem; font-weight: 600; color: #1e293b; }
 .actionDesc  { font-size: 0.75rem; color: #94a3b8; margin-top: 1px; }
 .actionArrow { color: #cbd5e1; font-size: 1rem; margin-left: auto; }
+
+/* ── Loading / Empty states ── */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 4rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+.loadingIcon { font-size: 2rem; }
+
+.emptyState {
+  padding: 3rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* ── Filter bar ── */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.5rem 0.875rem;
+  flex: 1;
+  min-width: 220px;
+}
+.searchIcon { font-size: 0.9rem; color: #94a3b8; }
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: #334155;
+  background: transparent;
+}
+.searchInput::placeholder { color: #cbd5e1; }
+.searchClear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  padding: 0;
+  line-height: 1;
+}
+
+/* ── Status tabs ── */
+.statusTabs { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+.statusTab {
+  padding: 0.4rem 0.875rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s;
+}
+.statusTab:hover { background: #f8fafc; }
+.statusTabActive {
+  background: #6366f1;
+  color: #fff;
+  border-color: #6366f1;
+}
+.tabCount {
+  background: rgba(255,255,255,0.25);
+  border-radius: 50px;
+  padding: 0 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.statusTabActive .tabCount { background: rgba(255,255,255,0.3); }
+
+/* ── Table extras ── */
+.dateCell  { font-size: 0.8rem; color: #64748b; white-space: nowrap; }
+.rateCell  { font-weight: 700; color: #1e293b; }
+.plateTag  {
+  display: inline-block;
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.3px;
+}
+.specsCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+/* ── Action buttons (RentalsPage) ── */
+.actionBtns { display: flex; gap: 0.375rem; flex-wrap: wrap; }
+.btnConfirm, .btnReject, .btnComplete {
+  padding: 0.3rem 0.75rem;
+  border-radius: 7px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btnConfirm  { background: rgba(34,197,94,0.12);  color: #16a34a; }
+.btnReject   { background: rgba(239,68,68,0.1);   color: #dc2626; }
+.btnComplete { background: rgba(99,102,241,0.1);  color: #4f46e5; }
+.btnConfirm:disabled, .btnReject:disabled, .btnComplete:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Fleet Summary (OverviewPage) ── */
+.summaryList { display: flex; flex-direction: column; }
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+.summaryItem:last-child { border-bottom: none; }
+.summaryDot   { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.summaryLabel { flex: 1; font-size: 0.875rem; color: #475569; }
+.summaryValue { font-size: 1rem; font-weight: 800; }
+
+/* ── Customers ── */
+.customerRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.avatarCircle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Settings ── */
+.settingsGrid { display: flex; flex-direction: column; gap: 1.25rem; }
+.settingsBody { padding: 0 0.25rem; }
+.settingRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+.settingRow:last-child { border-bottom: none; }
+.settingLabel { font-size: 0.875rem; font-weight: 600; color: #1e293b; }
+.settingValue { font-size: 0.875rem; color: #64748b; }
+.settingDesc  { font-size: 0.8rem; color: #94a3b8; line-height: 1.5; }
+.settingDesc code {
+  background: #f1f5f9;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #6366f1;
+}

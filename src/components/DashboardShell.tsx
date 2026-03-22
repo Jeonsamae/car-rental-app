@@ -2,16 +2,8 @@ import type { ReactNode } from "react";
 import type { User } from "firebase/auth";
 import styles from "./DashboardShell.module.css";
 
-export interface NavItem {
-  icon: string;
-  label: string;
-  key: string;
-}
-
 interface Props {
-  navItems: NavItem[];
-  activeNav: string;
-  onNavChange: (key: string) => void;
+  sidebar: ReactNode;
   onLogout: () => void;
   user: User | null;
   role: string | null;
@@ -24,7 +16,7 @@ function getInitials(email: string) {
 }
 
 export default function DashboardShell({
-  navItems, activeNav, onNavChange, onLogout, user, role, title, children,
+  sidebar, onLogout, user, role, title, children,
 }: Props) {
   return (
     <div className={styles.shell}>
@@ -38,16 +30,7 @@ export default function DashboardShell({
         </div>
 
         <nav className={styles.nav}>
-          {navItems.map((item) => (
-            <button
-              key={item.key}
-              className={`${styles.navItem} ${activeNav === item.key ? styles.navItemActive : ""}`}
-              onClick={() => onNavChange(item.key)}
-            >
-              <span className={styles.navIcon}>{item.icon}</span>
-              {item.label}
-            </button>
-          ))}
+          {sidebar}
           <div className={styles.navDivider} />
           <button className={styles.logoutBtn} onClick={onLogout}>
             <span className={styles.navIcon}>🚪</span>
